@@ -1,0 +1,33 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Report</a></li>
+    <li class="breadcrumb-item active" aria-current="page">List</li>
+  </ol>
+</nav>
+
+<!-- 01. Binding dữ liệu sử dụng: ngClass, ngStyle -->
+<div *ngIf="isDisplay" [ngClass]="currentClasses" [style.font-size]="isChangeFontSize ? '18pt' : '10pt'">
+  Binding 1 chiều: {{text}}
+</div>
+
+<!-- Thử với ngStyle -->
+<div [ngStyle]="currentStyles">Xin chào Việt nam</div>
+
+<div>
+  <h2>Thông tin đăng ký:</h2>
+  <p>Tài khoản: {{userInfo.username}}</p>
+  <p>Mật khẩu: {{userInfo.password}}</p>
+</div>
+<label>
+  Username: <input name="username" [(ngModel)]="userInfo.username">
+</label>
+<label>Password: <input name="password" [(ngModel)]="userInfo.password"></label>
+
+<button type="button" (click)="register()">Đăng ký</button>
+
+<h3>Danh sách các công việc cần làm:</h3>
+
+<ul>
+<li *ngFor="let item of todoList; let i = index;">{{i + 1}}. {{item.text}}</li>
+</ul>
